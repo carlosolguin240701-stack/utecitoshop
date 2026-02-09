@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Proyecto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catalogo</a>
+  </nav>
+  <img src="img/utc.png">
+</header>
+
+<div class="contenido">
+  <h2>Agregar Proyecto</h2>
+
+  <form id="formProyecto">
+    <input type="text" id="titulo" placeholder="Nombre del proyecto" required><br><br>
+    <textarea id="descripcion" placeholder="Descripcion del proyecto" required></textarea><br><br>
+    <input type="file" id="imagen" accept="image/*" required><br><br>
+    <button>Agregar</button>
+  </form>
+
+  <h2>Proyectos Agregados</h2>
+  <div class="grid" id="lista"></div>
+</div>
+
+<!-- MODAL IMAGEN -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:1000;">
+  <img id="modalImg" style="max-width:90%; max-height:90%; border-radius:20px;">
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
+
+function verImagen(src) {
+  modal.style.display = "flex";
+  modalImg.src = src;
+}
+
+modal.onclick = () => {
+  modal.style.display = "none";
+}
+</script>
+
+<script src="js/auth.js"></script>
+<script src="js/proyectos.js"></script>
+
+</body>
+</html>
