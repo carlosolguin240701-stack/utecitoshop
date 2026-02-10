@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      margin: 10px 0;
+    }
+
+    img {
+      width: 150px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Panel de Administración</h2>
+
+  <p>Haz clic en una imagen para eliminarla</p>
+
+  <input type="file" id="imgInput" accept="image/*">
+  <button onclick="agregarImagen()">Agregar imagen</button>
+
+  <div id="galeria"></div>
+
+  <script>
+    const galeria = document.getElementById("galeria");
+
+    function agregarImagen() {
+      const input = document.getElementById("imgInput");
+      const file = input.files[0];
+
+      if (!file) {
+        alert("Selecciona una imagen");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        const img = document.createElement("img");
+        img.src = reader.result;
+
+        img.onclick = () => {
+          if (confirm("¿Eliminar imagen?")) {
+            img.remove();
+          }
+        };
+
+        galeria.appendChild(img);
+      };
+
+      reader.readAsDataURL(file);
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
