@@ -1,17 +1,16 @@
-function login() {
-  const u = document.getElementById("user").value;
-  const p = document.getElementById("pass").value;
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  if (u === "admin" && p === "1234") {
-    localStorage.setItem("login", "ok");
-    window.location.href = "agregar.html";
+  const usuario = document.getElementById("usuario").value;
+  const password = document.getElementById("password").value;
+
+  if (usuario === "admin" && password === "1234") {
+    localStorage.setItem("login", "true");
+    alert("Login correcto");
+    window.location.href = "catalogo.html";
   } else {
-    alert("Datos incorrectos");
+    document.getElementById("mensaje").innerText =
+      "Usuario o contraseña incorrectos";
   }
-}
+});
 
-if (window.location.pathname.includes("agregar")) {
-  if (localStorage.getItem("login") !== "ok") {
-    window.location.href = "login.html";
-  }
-}
