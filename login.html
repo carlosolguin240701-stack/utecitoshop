@@ -3,33 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b2a5b, #0f3b82);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0f3b82;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="catalogo.html">Catalogo</a>
-    <a href="acerca.html">Acerca de</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="login.html">Login</a>
-  </nav>
-  <img src="utc.png">
-</header>
+  <div class="login-box">
+    <h2>Iniciar sesión</h2>
 
-<section class="formulario">
-  <h2>Iniciar Sesion</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
-  <form id="loginForm">
-    <input type="text" id="usuario" placeholder="Usuario" required>
-    <input type="password" id="password" placeholder="Contraseña" required>
-    <button type="submit">Entrar</button>
-  </form>
+  <script>
+    const form = document.getElementById("loginForm");
 
-  <p id="mensaje"></p>
-</section>
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-<script src="auth.js"></script>
+      const user = document.getElementById("usuario").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && pass === "1234") {
+        window.location.href = "panel.html";
+      } else {
+        alert("Usuario o contraseña incorrectos");
+      }
+    });
+  </script>
+
 </body>
 </html>
+
