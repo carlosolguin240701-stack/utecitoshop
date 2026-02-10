@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="estilos.css">
-
 </head>
 <body>
 
 <header>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="catalogo.html">Catalogo</a>
+    <a href="acerca.html">Acerca de</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="login.html">Login</a>
+  </nav>
   <img src="utc.png">
-
 </header>
 
-<div class="hero">
-  <div>
-    <h2>Iniciar Sesion</h2>
-    <input id="user" placeholder="Usuario"><br><br>
-    <input id="pass" type="password" placeholder="Contrasena"><br><br>
-    <button onclick="login()">Entrar</button>
-  </div>
-</div>
+<section class="formulario">
+  <h2>Iniciar Sesion</h2>
 
-<script src="js/auth.js"></script>
+  <form id="loginForm">
+    <input type="text" id="usuario" placeholder="Usuario" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p id="mensaje"></p>
+</section>
+
+<script src="auth.js"></script>
 </body>
 </html>
-
-
-
